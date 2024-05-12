@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("styleForEmailForm.ejs") %>
+</head>
+<body>
+    <form method="post" action="/sendmail" enctype="multipart/form-data">
+        <label for="receiver">To</label>
+        <sub>(You can enter multiple E-Mail with
+            each separated by comma(upto 20))</sub>
+        <input name="email[receivers]" placeholder="To?" type="email" multiple required size="20"/>
+        <br>
+        <label for="sender">From</label>
+        <input name="email[sender]" placeholder="From?" type="email" required/>
+        <br>
+        <label for="subject">Subject</label>
+        <input name="email[subject]" placeholder="Enter the subject" type="text" required/>
+        <br>
+        <label for="message">Message</label>
+        <textarea name="email[message]" placeholder="Enter your messages" required></textarea>
+        <br><br>
+        <label for="attachments">Attachments</label>
+        <sub>(You can enter multiple attachments with(upto 20)(allowed formats: jpg, jpeg, png, pdf and video))</sub>
+        <input type="file" name="email[attachments]" multiple/>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
